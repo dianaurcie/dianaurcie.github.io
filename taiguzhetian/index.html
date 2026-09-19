@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="太古遮天-经典玄幻小说全集在线阅读与资源查询平台，提供小说简介、人物关系图、剧情章节索引及同人创作社区。">
+    <meta name="keywords" content="太古遮天, 玄幻小说, 在线阅读, 辰东, 小说推荐">
+    <title>太古遮天-经典玄幻巨著全集阅读与资料库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-bg: #0f0c13;
+            --secondary-bg: #1a1625;
+            --card-bg: #252033;
+            --accent-gold: #d4af37;
+            --accent-gold-dim: #8a7020;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #3a3245;
+            --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 12, 19, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dim));
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #2a2235 0%, #0f0c13 70%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23d4af37" fill-opacity="0.2" fill-rule="evenodd"/></svg>');
+            background-size: 400px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+        }
+
+        /* Synopsis Section */
+        .synopsis {
+            padding: 80px 0;
+            background: var(--primary-bg);
+        }
+
+        .synopsis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .synopsis-text h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .synopsis-text p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            color: #ccc;
+        }
+
+        .synopsis-features {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feature-list li::before {
+            content: '✦';
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-top: -2px;
+        }
+
+        /* Character Section */
+        .characters {
+            padding: 80px 0;
+            background: var(--secondary-bg);
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .char-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .char-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold-dim);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .char-avatar {
+            width: 100%;
+            height: 250px;
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .char-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .char-card:hover .char-avatar img {
+            transform: scale(1.1);
+        }
+
+        .char-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .char-name {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .char-title {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Chapter List Section */
+        .chapters {
+            padding: 80px 0;
+            background: var(--primary-bg);
+        }
+
+        .chapter-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 6px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .chapter-item:hover {
+            background: #2e273d;
+            border-left-color: var(--accent-gold);
+            padding-left: 30px;
+        }
+
+        .chapter-title {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .chapter-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background: #0b0910;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1a1625;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .synopsis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>太古遮天</span>全集阅读
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#intro">作品简介</a></li>
+                    <li><a href="#characters">人物关系</a></li>
+                    <li><a href="#chapters">章节目录</a></li>
+                    <li><a href="#community">同人社区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">开始阅读</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>太古遮天</h1>
+                <p>辰东巨著，延续《遮天》宇宙，探索太古神域的终极奥秘。</p>
+                <div class="hero-tags">
+                    <span class="tag">玄幻</span>
+                    <span class="tag">东方玄幻</span>
+                    <span class="tag">热血</span>
+                    <span class="tag">神魔</span>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button class="btn btn-primary">立即阅读</button>
+                    <button class="btn btn-outline">加入书架</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Synopsis Section -->
+        <section id="intro" class="synopsis">
+            <div class="container">
+                <h2 class="section-title">作品简介</h2>
+                <div class="synopsis-grid">
+                    <div class="synopsis-text">
+                        <p>《太古遮天》是网络文学知名作家辰东创作的东方玄幻小说，被誉为“遮天宇宙”的延续之作。故事背景设定在洪荒破碎后的太古时代，那里神魔并起，万族林立，古老的传说与未知的禁忌交织在一起。</p>
+                        <p>主角叶凡（注：此处沿用经典角色名或相关设定，若为同人衍生作品，则为衍生宇宙主角）从地球穿越至这片浩瀚无垠的大地，面临着比地球更加残酷的生存法则。这里没有弱者的容身之地，只有绝对的强权与力量。为了守护亲友，为了探寻生命的真谛，他踏上了逆天而行的征途。</p>
+                        <p>小说以宏大的世界观、错综复杂的人物关系和跌宕起伏的剧情著称。从荒古禁地到九天十地，从远古神魔的遗迹到太古万族的战场，每一处都隐藏着惊天动地的秘密。作者通过细腻的笔触，描绘了一幅波澜壮阔的修真画卷，让读者仿佛置身于那个神魔乱舞的史诗时代。</p>
+                    </div>
+                    <aside class="synopsis-features">
+                        <h3 style="color:var(--text-main); margin-bottom:15px; font-family:var(--font-serif);">作品看点</h3>
+                        <ul class="feature-list">
+                            <li>宏大世界观，承接《遮天》设定。</li>
+                            <li>热血战斗，展现太古神魔风采。</li>
+                            <li>跌宕起伏的剧情，悬念丛生。</li>
+                            <li>丰富的种族设定与修炼体系。</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="characters">
+            <div class="container">
+                <h2 class="section-title">主要人物</h2>
+                <div class="char-grid">
+                    <!-- Character 1 -->
+                    <article class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/yefan/400/500" alt="叶凡">
+                        </div>
+                        <div class="char-info">
+                            <h3 class="char-name">叶凡</h3>
+                            <span class="char-title">主角</span>
+                        </div>
+                    </article>
+
+                    <!-- Character 2 -->
+                    <article class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/jiangtao/400/500" alt="姜太虚">
+                        </div>
+                        <div class="char-info">
+                            <h3 class="char-name">姜太虚</h3>
+                            <span class="char-title">太古圣体</span>
+                        </div>
+                    </article>
+
+                    <!-- Character 3 -->
+                    <article class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/zhuqing/400/500" alt="紫府仙子">
+                        </div>
+                        <div class="char-info">
+                            <h3 class="char-name">紫府仙子</h3>
+                            <span class="char-title">神秘女子</span>
+                        </div>
+                    </article>
+
+                    <!-- Character 4 -->
+                    <article class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/demon/400/500" alt="天妖皇">
+                        </div>
+                        <div class="char-info">
+                            <h3 class="char-name">天妖皇</h3>
+                            <span class="char-title">妖族至尊</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter List Section -->
+        <section id="chapters" class="chapters">
+            <div class="container">
+                <h2 class="section-title">章节目录</h2>
+                <div class="chapter-nav">
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一章：荒古禁地</span>
+                        <span class="chapter-meta">最新更新</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第二章：九转神功</span>
+                        <span class="chapter-meta">第2章</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第三章：紫府仙子</span>
+                        <span class="chapter-meta">第3章</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第四章：太古神魔</span>
+                        <span class="chapter-meta">第4章</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第五章：逆天而行</span>
+                        <span class="chapter-meta">第5章</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第六章：万族战场</span>
+                        <span class="chapter-meta">第6章</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第七章：神源出世</span>
+                        <span class="chapter-meta">第7章</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第八章：血战</span>
+                        <span class="chapter-meta">第8章</span>
+                    </a>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn btn-outline">加载更多章节</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community/FAQ Section -->
+        <section id="community" style="background: var(--secondary-bg); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">读者互动</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <article style="background: var(--card-bg); padding: 25px; border-radius: 8px;">
+                        <h3 style="color: var(--text-main); margin-bottom: 10px;">讨论区</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">分享你的阅读心得，探讨剧情走向，结交同好。</p>
+                        <button class="btn btn-primary" style="font-size: 0.85rem; padding: 6px 15px;">进入讨论</button>
+                    </article>
+                    <article style="background: var(--card-bg); padding: 25px; border-radius: 8px;">
+                        <h3 style="color: var(--text-main); margin-bottom: 10px;">投稿指南</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">欢迎原创作者投稿，展示你的太古遮天同人作品。</p>
+                        <button class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 15px;">查看规则</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于太古遮天</h4>
+                    <ul>
+                        <li><a href="#">作品简介</a></li>
+                        <li><a href="#">作者介绍</a></li>
+                        <li><a href="#">更新状态</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>阅读指南</h4>
+                    <ul>
+                        <li><a href="#">阅读帮助</a></li>
+                        <li><a href="#">设备适配</a></li>
+                        <li><a href="#">VIP章节</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">起点中文网</a></li>
+                        <li><a href="#">纵横中文网</a></li>
+                        <li><a href="#">17K小说网</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 太古遮天阅读平台. All Rights Reserved. 本站为非盈利性作品展示页面，旨在为读者提供阅读指引。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
