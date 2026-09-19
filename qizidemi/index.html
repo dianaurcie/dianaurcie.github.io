@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="妻子秘密小说阅读全文 - 沉浸式阅读体验。提供妻子秘密全集在线阅读，包含章节列表、作者介绍及最新更新动态。支持手机与电脑端浏览，排版优化，阅读流畅。">
+    <meta name="keywords" content="妻子秘密小说阅读全文,妻子秘密,小说阅读,在线小说,免费小说">
+    <title>妻子秘密小说阅读全文 - 全集在线阅读与章节导航</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --bg-color: #f9f9fc;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(142, 68, 173, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .book-cover {
+            background: linear-gradient(45deg, #f3e5f5, #e1bee7);
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(142, 68, 173, 0.2);
+        }
+
+        .book-cover::after {
+            content: "妻子秘密";
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+            transform: rotate(-5deg);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .book-info h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .book-meta {
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .book-meta span {
+            margin-right: 1rem;
+        }
+
+        .book-tags {
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f3e5f5;
+            color: var(--primary-color);
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: #f3e5f5;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            color: var(--text-main);
+        }
+
+        .chapter-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-list a {
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .chapter-list a:hover {
+            background-color: #f5f5f5;
+            color: var(--primary-color);
+            padding-left: 0.8rem;
+        }
+
+        .chapter-list a.current {
+            background-color: #f3e5f5;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Content Area */
+        .content-area {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            min-height: 500px;
+        }
+
+        .content-area h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            text-align: justify;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* Reader Placeholder */
+        .reader-placeholder {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 2px dashed #ddd;
+            margin-top: 2rem;
+        }
+
+        .reader-placeholder h3 {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                font-size: 0.85rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                order: -1;
+            }
+
+            .book-cover {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo"><span>小说</span>阅读网</div>
+        <nav class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">分类</a>
+            <a href="#">排行榜</a>
+            <a href="#">我的书架</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="book-cover" role="img" aria-label="妻子秘密小说封面"></div>
+            <div class="book-info">
+                <h1>妻子秘密</h1>
+                <div class="book-meta">
+                    <span>作者：佚名</span>
+                    <span>类型：现代言情</span>
+                    <span>状态：连载中</span>
+                    <span>字数：50万字</span>
+                </div>
+                <div class="book-tags">
+                    <span class="tag">豪门世家</span>
+                    <span class="tag">都市情缘</span>
+                    <span class="tag">情感纠葛</span>
+                </div>
+                <div class="action-buttons">
+                    <a href="#chapters" class="btn btn-primary">开始阅读</a>
+                    <button class="btn btn-outline" onclick="alert('加入书架功能演示')">加入书架</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-layout">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">章节目录</h3>
+                <ul class="chapter-list">
+                    <li><a href="#" class="current">第 1 章 意外重逢</a></li>
+                    <li><a href="#">第 2 章 楼下的女人</a></li>
+                    <li><a href="#">第 3章 签约</a></li>
+                    <li><a href="#">第 4章 婚礼前夕</a></li>
+                    <li><a href="#">第 5章 离婚协议书</a></li>
+                    <li><a href="#">第 6章 陌生的丈夫</a></li>
+                    <li><a href="#">第 7章 晚宴风波</a></li>
+                    <li><a href="#">第 8章 暗流涌动</a></li>
+                    <li><a href="#">第 9章 真相一角</a></li>
+                    <li><a href="#">第 10章 突发状况</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">相关推荐</h3>
+                <ul class="chapter-list">
+                    <li><a href="#">《总裁的替身前妻》</a></li>
+                    <li><a href="#">《豪门千金归来》</a></li>
+                    <li><a href="#">《蚀骨危情》</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <section class="content-area" id="chapters">
+            <h2>第 1 章 意外重逢</h2>
+            <div class="intro-text">
+                <p>这座城市在这个深秋的夜晚显得格外萧瑟，雨水拍打着落地窗，发出沉闷的声响。苏婉坐在咖啡厅的角落里，手里紧紧攥着那个已经凉透的咖啡杯，目光却穿过氤氲的热气，死死地盯着门口。</p>
+                <p>那是她在这个城市里最不想见到，却又不得不见的人。五年前，他毁了她的一切，将她像垃圾一样扫地出门。五年后，她带着满身的伤痕和复仇的决心归来，以为早已心如止水，可当那个熟悉的身影真的出现在视线中时，她心底那座封存的冰山，依然轰然崩塌。</p>
+                <p>男人穿着剪裁得体的深灰色西装，眉眼依旧英挺冷峻，只是眼底多了一丝不易察觉的疲惫。他似乎感应到了什么，目光扫过整个咖啡厅，最终定格在了苏婉的身上。</p>
+                <p>两人的视线在空中交汇，仿佛有一道电流穿过全身。苏婉下意识地想要低下头，但转念一想，既然来了，就没有退缩的道理。她深吸一口气，挺直了脊背，迎着他的目光走了过去。</p>
+                <p>“好久不见，陆先生。”她的声音有些颤抖，但语气却努力维持着表面的平静。</p>
+                <p>陆景琛看着眼前这个女人，五年不见，她变得更加成熟、美丽，却也变得更加让他看不透。他拉开椅子，在她对面坐下，动作优雅而从容，仿佛他们之间并没有发生过那场撕心裂肺的决裂。</p>
+                <p>“苏婉，你回来了。”他的声音低沉磁性，带着一丝不易察觉的凉意，“找我有什么事吗？”</p>
+                <p>苏婉看着他，心中涌起一股酸楚。她想要质问他为什么要这么做，想要问他这五年过得好不好，但最终，所有的话都卡在了喉咙里。她只是轻轻笑了笑，将一份文件推到了他的面前。</p>
+                <p>“陆景琛，我们之间，是不是该算算账了？”</p>
+            </div>
+
+            <div class="reader-placeholder">
+                <h3>阅读更多章节</h3>
+                <p style="margin-bottom: 1rem; color: #666;">此页面为演示章节，实际网站将加载完整正文内容。</p>
+                <a href="#" class="btn btn-primary">加载下一章</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">为什么选择我们阅读《妻子秘密》</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">极速加载</h3>
+                    <p class="feature-desc">优化后的排版引擎，毫秒级响应速度，告别等待，畅享阅读。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <h3 class="feature-title">多端同步</h3>
+                    <p class="feature-desc">手机、平板、电脑自动适配，随时随地无缝切换阅读进度。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">❤️</span>
+                    <h3 class="feature-title">纯净体验</h3>
+                    <p class="feature-desc">无弹窗广告干扰，沉浸式阅读环境，专注于故事本身。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于阅读网</h4>
+                <p style="font-size: 0.9rem; line-height: 1.8;">致力于为用户提供最优质的小说阅读体验，收录海量热门小说，涵盖都市、玄幻、言情、悬疑等多种题材。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">分类大全</a></li>
+                    <li><a href="#">投稿通道</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">阅读指南</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">用户协议</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 小说阅读网 版权所有. 本站仅提供《妻子秘密》小说阅读服务，所有内容均来自互联网。</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+              </html>
