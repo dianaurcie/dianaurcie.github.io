@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="仙女楼 - 传统文化与现代审美的融合空间。探索古典仙侠美学、传统建筑智慧与东方生活哲学。提供古风设计灵感、文化解读与雅致生活方式指南。">
+    <meta name="keywords" content="仙女楼, 古风设计, 仙侠美学, 东方建筑, 传统文化, 雅致生活">
+    <title>仙女楼-古风美学与东方生活空间</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8E354A; /* 朱砂红 */
+            --secondary-color: #D4AF37; /* 鎏金 */
+            --bg-color: #FDFBF7; /* 宣纸白 */
+            --text-main: #2C2C2C; /* 墨黑 */
+            --text-light: #666666; /* 灰墨 */
+            --card-bg: #FFFFFF;
+            --border-radius: 8px;
+            --spacing-unit: 1.5rem;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        header {
+            background-color: rgba(253, 251, 247, 0.95);
+            border-bottom: 1px solid rgba(142, 53, 74, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "❖";
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/xiannv/1920/1080.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-family: "KaiTi", "STKaiti", serif;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #fff;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--text-main);
+        }
+
+        /* 通用区块样式 */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-family: "KaiTi", "STKaiti", serif;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 理念区块 */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .philosophy-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 3px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .philosophy-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .philosophy-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* 画廊/视觉 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* 文化解读列表 */
+        .culture-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .culture-item {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .culture-img {
+            width: 40%;
+            object-fit: cover;
+            min-height: 200px;
+        }
+
+        .culture-content {
+            padding: 30px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .culture-tag {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .culture-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* 常见问题 FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none;
+            position: relative;
+            padding-right: 50px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            line-height: 1;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: var(--text-light);
+            background-color: #fafafa;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2C2C2C;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .gallery-item.large {
+                grid-column: span 1;
+                grid-row: span 1;
+                height: 300px;
+            }
+
+            .culture-item {
+                flex-direction: column;
+            }
+
+            .culture-img, .culture-content {
+                width: 100%;
+            }
+            
+            .culture-img {
+                height: 200px;
+            }
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">仙女楼</div>
+                <div class="nav-links">
+                    <a href="#home">首页</a>
+                    <a href="#philosophy">空间理念</a>
+                    <a href="#gallery">视觉图鉴</a>
+                    <a href="#culture">文化解读</a>
+                    <a href="#faq">关于我们</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>入梦仙楼，寻得一方净土</h1>
+            <p>融合古典仙侠美学与现代生活哲学的沉浸式空间，探索东方建筑智慧与雅致生活方式。</p>
+            <div class="hero-btns">
+                <a href="#gallery" class="btn">浏览图鉴</a>
+                <a href="#philosophy" class="btn btn-outline">了解理念</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理念区块 -->
+    <section id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <h2>空间哲学</h2>
+                <p>何为“仙女楼”？不仅是建筑的形制，更是心境的投射。</p>
+            </div>
+            <div class="philosophy-grid">
+                <article class="philosophy-card">
+                    <div class="philosophy-icon">◈</div>
+                    <h3>虚实相生</h3>
+                    <p>借鉴中国传统园林的借景与造景手法，在有限空间内创造无限意境，体现“天人合一”的哲学思想。</p>
+                </article>
+                <article class="philosophy-card">
+                    <div class="philosophy-icon">❖</div>
+                    <h3>雅致极简</h3>
+                    <p>摒弃繁复的装饰，回归材质本身的纹理。以原木、青石、素纱构建清爽通透的视觉体验。</p>
+                </article>
+                <article class="philosophy-card">
+                    <div class="philosophy-icon">✦</div>
+                    <h3>光影流转</h3>
+                    <p>利用自然光与灯笼的配合，营造出昼夜不同的氛围。白昼素雅，夜晚朦胧，赋予建筑生命力。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视觉图鉴 -->
+    <section id="gallery" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>视觉图鉴</h2>
+                <p>精选仙女楼建筑与装饰细节，感受东方美学的细节之美。</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="https://picsum.photos/seed/temple/800/800.jpg" alt="仙女楼全景">
+                    <div class="gallery-overlay">
+                        <h4>云雾缭绕的楼阁外观</h4>
+                        <p>依山而建，气势恢宏</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/wood/400/400.jpg" alt="雕花窗棂">
+                    <div class="gallery-overlay">
+                        <h4>精工雕花</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/lamp/400/400.jpg" alt="庭院灯笼">
+                    <div class="gallery-overlay">
+                        <h4>夜色灯笼</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/flower/400/400.jpg" alt="庭院花卉">
+                    <div class="gallery-overlay">
+                        <h4>庭院植栽</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/painting/400/400.jpg" alt="室内挂画">
+                    <div class="gallery-overlay">
+                        <h4>意境挂画</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化解读 -->
+    <section id="culture">
+        <div class="container">
+            <div class="section-header">
+                <h2>文化解读</h2>
+                <p>从建筑到器物，深度解析仙女楼背后的文化符号。</p>
+            </div>
+            <div class="culture-list">
+                <article class="culture-item">
+                    <img src="https://picsum.photos/seed/arch/600/400.jpg" alt="飞檐翘角" class="culture-img">
+                    <div class="culture-content">
+                        <span class="culture-tag">建筑 · 飞檐</span>
+                        <h3>如鸟斯革，如翚斯飞</h3>
+                        <p>仙女楼的屋檐设计通常采用“飞檐”形式，向上反卷。这不仅有利于排水，更赋予了建筑轻盈灵动的视觉效果，仿佛随时准备腾空而起，是古建筑中极具代表性的艺术元素。</p>
+                    </div>
+                </article>
+                <article class="culture-item">
+                    <img src="https://picsum.photos/seed/furniture/600/400.jpg" alt="木质家具" class="culture-img">
+                    <div class="culture-content">
+                        <span class="culture-tag">器物 · 木质</span>
+                        <h3>榫卯结构的智慧</h3>
+                        <p>楼内陈设多采用实木家具，强调“榫卯”工艺。不使用一钉一胶，仅凭木材间的咬合便能稳固千年。这种工艺体现了道家“顺应自然、无为而治”的智慧。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>关于仙女楼概念、应用场景及设计风格的解答。</p>
+            </div>
+            <div class="faq-container">
+                <details>
+                    <summary>仙女楼适合作为现代住宅设计参考吗？</summary>
+                    <div class="faq-answer">
+                        <p>仙女楼的设计理念非常适合现代极简主义风格的家居参考。其强调的留白、自然材质的使用以及光影的运用，可以很好地融入现代公寓或别墅的设计中，提升空间的意境。</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>仙女楼主要代表哪种文化流派？</summary>
+                    <div class="faq-answer">
+                        <p>仙女楼主要融合了中国传统建筑美学、仙侠文化元素以及现代室内设计理念。它不是特定的历史建筑流派，而是一种基于传统文化意象的当代文化符号。</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>如何在家中营造“仙女楼”的氛围？</summary>
+                    <div class="faq-answer">
+                        <p>可以从软装入手：选择原木色或深色系的家具，搭配素色布艺；使用灯带或暖色吊灯营造柔和光线；在角落摆放绿植或山水摆件；墙面可挂水墨画或书法作品，营造清幽雅致的氛围。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: #fff; margin-bottom: 20px;">仙女楼</div>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        致力于传播东方古典美学与现代生活方式的融合。在这里，寻找内心的宁静与诗意。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">建筑美学</a></li>
+                        <li><a href="#">家居设计</a></li>
+                        <li><a href="#">文化专栏</a></li>
+                        <li><a href="#">灵感图库</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">合作入驻</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 仙女楼. 保留所有权利. 本站内容仅供文化展示与参考.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
