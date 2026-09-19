@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怡红院-古典文学与传统文化赏析平台</title>
+    <meta name="description" content="怡红院是专注于中国古典文学、红楼梦文化研究及传统园林艺术鉴赏的在线平台。提供红楼梦人物解析、古典诗词赏析及传统园林建筑图鉴。">
+    <meta name="keywords" content="怡红院,红楼梦,古典文学,传统文化,园林艺术,贾宝玉,金陵十二钗">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8e2e2e;
+            --secondary-color: #d4af37;
+            --bg-color: #f9f7f2;
+            --text-color: #333;
+            --text-light: #666;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c1e1e 0%, #5c2e2e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDQwaDQwVjBIMHY0MHptMjAtMjBoMnYyaC0ydmEybS0yIDBoMnYyaC0ydmEybSIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9nPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #2c1e1e;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #e5c150;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Character Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--secondary-color);
+            background: #fff8e1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-link::after {
+            content: "→";
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .card-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Library Grid */
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .library-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 2/3;
+            cursor: pointer;
+        }
+
+        .library-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .library-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .library-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px 10px 10px;
+            color: white;
+        }
+
+        .library-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c1e1e;
+            color: #ccc;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">怡红院<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#characters">人物图鉴</a></li>
+                <li><a href="#library">古典典籍</a></li>
+                <li><a href="#features">文化赏析</a></li>
+                <li><a href="#about">关于我们</a></li>
+            </ul>
+        </nav>
+        <button class="search-btn">🔍 搜索</button>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>怡红院：古典文学的雅致家园</h1>
+        <p>探索《红楼梦》的深邃世界，领略金陵十二钗的风华绝代，感受中国传统文化的独特韵味。</p>
+        <a href="#characters" class="cta-button">开始探索</a>
+    </div>
+</section>
+
+<main class="container">
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">📚</div>
+                <h3 class="feature-title">深度解析</h3>
+                <p class="feature-text">提供详尽的人物性格分析、诗词赏析及情节解读。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🏯</div>
+                <h3 class="feature-title">园林美学</h3>
+                <p class="feature-text">还原大观园的布局与建筑特色，体验中式园林之美。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎭</div>
+                <h3 class="feature-title">戏曲艺术</h3>
+                <p class="feature-text">汇集京剧、昆曲等传统戏曲中的相关剧目与赏析。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters">
+        <div class="section-header">
+            <h2 class="section-title">金陵十二钗</h2>
+            <a href="#" class="view-all">查看全部人物 &rarr;</a>
+        </div>
+        <div class="grid-layout">
+            <article class="card">
+                <img src="https://picsum.photos/seed/baoyu/400/300" alt="贾宝玉" class="card-image">
+                <div class="card-body">
+                    <span class="card-tag">核心人物</span>
+                    <h3 class="card-title">贾宝玉</h3>
+                    <p class="card-desc">荣国府衔玉而诞的公子，前世为神瑛侍者，性情叛逆，厌恶仕途经济。</p>
+                    <a href="#" class="card-link">人物详解</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/xifeng/400/300" alt="王熙凤" class="card-image">
+                <div class="card-body">
+                    <span class="card-tag">管家奶奶</span>
+                    <h3 class="card-title">王熙凤</h3>
+                    <p class="card-desc">贾府的实际管理者，精明强干，口齿伶俐，却难逃“机关算尽太聪明”的结局。</p>
+                    <a href="#" class="card-link">人物详解</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/baichi/400/300" alt="林黛玉" class="card-image">
+                <div class="card-body">
+                    <span class="card-tag">绛珠仙草</span>
+                    <h3 class="card-title">林黛玉</h3>
+                    <p class="card-desc">前世为西方灵河岸边的绛珠仙草，为报神瑛侍者灌溉之恩，下凡历劫。</p>
+                    <a href="#" class="card-link">人物详解</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/xuebaochai/400/300" alt="薛宝钗" class="card-image">
+                <div class="card-body">
+                    <span class="card-tag">蘅芜君</span>
+                    <h3 class="card-title">薛宝钗</h3>
+                    <p class="card-desc">金陵十二钗之首，举止娴雅，博学多才，是封建淑女的典范。</p>
+                    <a href="#" class="card-link">人物详解</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Library Section -->
+    <section id="library">
+        <div class="section-header">
+            <h2 class="section-title">经典典籍</h2>
+            <a href="#" class="view-all">浏览书库 &rarr;</a>
+        </div>
+        <div class="library-grid">
+            <div class="library-item">
+                <img src="https://picsum.photos/seed/book1/300/450" alt="红楼梦">
+                <div class="library-overlay">
+                    <div class="library-title">红楼梦（前八十回）</div>
+                </div>
+            </div>
+            <div class="library-item">
+                <img src="https://picsum.photos/seed/book2/300/450" alt="脂砚斋评本">
+                <div class="library-overlay">
+                    <div class="library-title">脂砚斋重评石头记</div>
+                </div>
+            </div>
+            <div class="library-item">
+                <img src="https://picsum.photos/seed/book3/300/450" alt="金陵十二钗图">
+                <div class="library-overlay">
+                    <div class="library-title">金陵十二钗图咏</div>
+                </div>
+            </div>
+            <div class="library-item">
+                <img src="https://picsum.photos/seed/book4/300/450" alt="大观园图">
+                <div class="library-overlay">
+                    <div class="library-title">大观园图说</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" style="margin-top: 60px;">
+        <div class="section-header">
+            <h2 class="section-title">文化赏析</h2>
+        </div>
+        <div class="grid-layout">
+            <article class="card">
+                <img src="https://picsum.photos/seed/poetry/400/250" alt="诗词赏析" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">诗词中的大观园</h3>
+                    <p class="card-desc">赏析《红楼梦》中人物所作的诗词，感受其情感与才情的交融。</p>
+                </article>
+            </div>
+            <article class="card">
+                <img src="https://picsum.photos/seed/tea/400/250" alt="茶文化" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">红楼茶道</h3>
+                    <p class="card-desc">探秘书中提到的各式茶饮，了解清代贵族的饮茶习俗与礼仪。</p>
+                </article>
+            </div>
+            <article class="card">
+                <img src="https://picsum.photos/seed/fashion/400/250" alt="服饰" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">红楼服饰</h3>
+                    <p class="card-desc">解析《红楼梦》中人物服饰的材质、颜色与等级象征意义。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于怡红院</h4>
+            <p style="font-size: 14px; line-height: 1.8;">
+                怡红院致力于传播中国古典文学精品，特别是《红楼梦》文化。我们以严谨的学术态度和生动的呈现方式，为读者提供一个沉浸式的文化体验空间。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>快速导航</h4>
+            <ul>
+                <li><a href="#">人物图鉴</a></li>
+                <li><a href="#">诗词歌赋</a></li>
+                <li><a href="#">园林建筑</a></li>
+                <li><a href="#">戏曲赏析</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>相关链接</h4>
+            <ul>
+                <li><a href="#">曹雪芹纪念馆</a></li>
+                <li><a href="#">中国古典文学网</a></li>
+                <li><a href="#">故宫博物院</a></li>
+                <li><a href="#">国家图书馆</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>联系我们</h4>
+            <ul>
+                <li>邮箱：contact@yihongyuan.com</li>
+                <li>地址：文化路 88 号</li>
+                <li>电话：010-12345678</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 怡红院文化平台 版权所有 | 仅供文化交流与学习使用</p>
+    </div>
+</footer>
+
+</body>
+  </html>
