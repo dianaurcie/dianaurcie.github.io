@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫咪网 - 专业猫咪百科、养护指南与社区交流平台</title>
+    <meta name="description" content="猫咪网提供全面的猫咪品种介绍、科学喂养指南、疾病预防知识以及猫咪行为心理分析。加入我们的猫咪爱好者社区，分享养猫经验与萌宠照片。">
+    <meta name="keywords" content="猫咪网, 养猫知识, 猫咪品种, 宠物猫, 猫咪百科">
+    <style>
+        :root {
+            --primary-color: #ff8c42;
+            --primary-hover: #e6731f;
+            --secondary-color: #4a4a4a;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 5px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 250px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .search-box button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 60px 0;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 140, 66, 0.2);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Popular Breeds */
+        .breeds {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .breed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .breed-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s;
+        }
+
+        .breed-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .breed-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .breed-info {
+            padding: 20px;
+        }
+
+        .breed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .breed-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .breed-tag {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            background-color: #e0f2f1;
+            color: #00695c;
+            border-radius: 4px;
+        }
+
+        .breed-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .breed-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Care Guide Section */
+        .care-guide {
+            padding: 60px 0;
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-list article {
+            background: var(--card-bg);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .guide-thumb {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .guide-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .guide-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .sidebar-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .checklist li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 60px 0;
+            background-color: #f4f6f8;
+        }
+
+        .forum-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .forum-topic {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .topic-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .topic-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+            .forum-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                🐾 猫咪网 <span>CatWorld</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#breeds">品种大全</a></li>
+                    <li><a href="#care">养护指南</a></li>
+                    <li><a href="#community">猫友社区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索猫咪品种、症状或问题...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>了解您的爱猫，开启科学养猫之旅</h1>
+                <p>从品种选择到日常护理，从行为训练到疾病预防，猫咪网致力于为每一位铲屎官提供最专业、最实用的猫咪知识。</p>
+                <div class="cta-group">
+                    <a href="#breeds" class="btn btn-primary">浏览热门品种</a>
+                    <a href="#care" class="btn btn-outline">查看养护指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">探索猫科世界</h2>
+                <p class="section-subtitle">无论您是想了解哪种类型的猫咪，这里都有您需要的答案。</p>
+                <div class="cat-grid">
+                    <div class="cat-card">
+                        <span class="cat-icon">🧬</span>
+                        <div class="cat-title">品种百科</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🍖</span>
+                        <div class="cat-title">科学喂养</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🏥</span>
+                        <div class="cat-title">健康医疗</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🧹</span>
+                        <div class="cat-title">行为训练</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🏠</span>
+                        <div class="cat-title">居家布置</div>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🐱‍👤</span>
+                        <div class="cat-title">猫奴生活</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Breeds Section -->
+        <section id="breeds" class="breeds">
+            <div class="container">
+                <h2 class="section-title">热门猫咪品种推荐</h2>
+                <p class="section-subtitle">不同品种的猫咪性格、外貌和护理需求各不相同，选择适合您的伙伴。</p>
+                <div class="breed-grid">
+                    <article class="breed-card">
+                        <img src="https://picsum.photos/seed/ragdoll/400/300" alt="布偶猫" class="breed-img">
+                        <div class="breed-info">
+                            <div class="breed-header">
+                                <h3 class="breed-name">布偶猫</h3>
+                                <span class="breed-tag">温顺</span>
+                            </div>
+                            <p class="breed-desc">被称为“仙女猫”，性格极其温顺粘人，喜欢被抱起，是理想的伴侣动物。</p>
+                            <div class="breed-meta">
+                                <span class="meta-item">📏 体重: 4-9kg</span>
+                                <span class="meta-item">💇 毛发: 长毛</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="breed-card">
+                        <img src="https://picsum.photos/seed/siamese/400/300" alt="暹罗猫" class="breed-img">
+                        <div class="breed-info">
+                            <div class="breed-header">
+                                <h3 class="breed-name">暹罗猫</h3>
+                                <span class="breed-tag">话痨</span>
+                            </div>
+                            <p class="breed-desc">精力旺盛，非常聪明，叫声像小狗，善于与主人进行深度的眼神交流。</p>
+                            <div class="breed-meta">
+                                <span class="meta-item">📏 体重: 3-5kg</span>
+                                <span class="meta-item">💇 毛发: 短毛</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="breed-card">
+                        <img src="https://picsum.photos/seed/scottish/400/300" alt="苏格兰折耳猫" class="breed-img">
+                        <div class="breed-info">
+                            <div class="breed-header">
+                                <h3 class="breed-name">苏格兰折耳猫</h3>
+                                <span class="breed-tag">可爱</span>
+                            </div>
+                            <p class="breed-desc">因耳朵向前折叠而得名，外形圆润可爱，但需注意遗传性骨骼疾病。</p>
+                            <div class="breed-meta">
+                                <span class="meta-item">📏 体重: 3-6kg</span>
+                                <span class="meta-item">💇 毛发: 长短毛</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="breed-card">
+                        <img src="https://picsum.photos/seed/american/400/300" alt="美国短毛猫" class="breed-img">
+                        <div class="breed-info">
+                            <div class="breed-header">
+                                <h3 class="breed-name">美国短毛猫</h3>
+                                <span class="breed-tag">健壮</span>
+                            </div>
+                            <p class="breed-desc">体质强壮，适应力强，性格稳定，非常适合有小孩的家庭饲养。</p>
+                            <div class="breed-meta">
+                                <span class="meta-item">📏 体重: 3-7kg</span>
+                                <span class="meta-item">💇 毛发: 短毛</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Care Guide Section -->
+        <section id="care" class="care-guide">
+            <div class="container">
+                <h2 class="section-title">新手养猫必备指南</h2>
+                <p class="section-subtitle">掌握关键知识，让您的猫咪健康快乐地成长。</p>
+                <div class="guide-layout">
+                    <div class="guide-list">
+                        <article>
+                            <img src="https://picsum.photos/seed/catfood/150/150" alt="饮食建议" class="guide-thumb">
+                            <div class="guide-content">
+                                <h3>科学饮食：如何选择猫粮</h3>
+                                <p>了解猫咪的营养需求，区分干粮与湿粮，避免喂食对猫有害的人类食物。</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="https://picsum.photos/seed/catvaccine/150/150" alt="疫苗接种" class="guide-thumb">
+                            <div class="guide-content">
+                                <h3>疫苗接种与健康档案</h3>
+                                <p>建立猫咪的健康档案，按时接种核心疫苗，定期进行体内外驱虫。</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="https://picsum.photos/seed/catbox/150/150" alt="环境布置" class="guide-thumb">
+                            <div class="guide-content">
+                                <h3>猫砂盆与排泄习惯训练</h3>
+                                <p">选择合适的猫砂盆，保持清洁，帮助新猫快速适应如厕习惯。</p>
+                            </div>
+                        </article>
+                    </div>
+                    <aside>
+                        <div class="sidebar-box">
+                            <h3 class="sidebar-title">新手 Checklist</h3>
+                            <ul class="checklist">
+                                <li>准备猫粮、水碗、食盆</li>
+                                <li>购买舒适的猫窝或垫子</li>
+                                <li>准备猫砂盆和猫砂</li>
+                                <li>准备逗猫棒和玩具</li>
+                                <li>预约首次体检时间</li>
+                                <li>清理家中潜在危险物品</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-box" style="margin-top: 20px;">
+                            <h3 class="sidebar-title">常见问题</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">猫咪呕吐正常吗？</p>
+                            <p style="font-size: 0.9rem; color: #666;">偶尔吐毛球是正常的，但如果频繁呕吐或伴有精神萎靡，建议及时就医。</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="community">
+            <div class="container">
+                <h2 class="section-title">猫友社区 & 互动</h2>
+                <p class="section-subtitle">分享您的养猫故事，咨询专家问题，结识志同道合的朋友。</p>
+                <div class="forum-grid">
+                    <div class="forum-topic">
+                        <div>
+                            <span class="topic-tag">求助</span>
+                            <h3 class="topic-title">我家猫咪突然不吃东西，精神也不好，怎么办？</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">发布于 2小时前 • 23 回复</p>
+                        </div>
+                    </div>
+                    <div class="forum-topic">
+                        <div>
+                            <span class="topic-tag">晒图</span>
+                            <h3 class="topic-title">晒晒我家主子的睡姿，这也太可爱了吧！🥰</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">发布于 5小时前 • 108 回复</p>
+                        </div>
+                    </div>
+                    <div class="forum-topic">
+                        <div>
+                            <span class="topic-tag">经验</span>
+                            <h3 class="topic-title">分享我的自制猫饭配方，营养均衡又便宜</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">发布于 1天前 • 56 回复</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>🐾 猫咪网</h2>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">专注于为猫咪爱好者提供最权威的品种知识、科学的养护方案以及温暖的社区交流环境。我们致力于成为每一位铲屎官最可靠的养猫顾问。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">品种大全</a></li>
+                        <li><a href="#">专家问答</a></li>
+                        <li><a href="#">加入社区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>养护指南</h4>
+                    <ul>
+                        <li><a href="#">疫苗接种</a></li>
+                        <li><a href="#">驱虫指南</a></li>
+                        <li><a href="#">行为矫正</a></li>
+                        <li><a href="#">绝育知识</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@catworld.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：北京市朝阳区宠物大道88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 猫咪网 版权所有. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+          </html>
